@@ -17,7 +17,7 @@ def difference(dead_date, date_now):
 # Обработка пользовательского ввода
 def inp():
     if dif < 0:
-        print('ВНИМАНИЕ! Дедлайн истек ' + str(abs(dif)) + ' дней назад')
+        print(f'ВНИМАНИЕ! Дедлайн истек {abs(dif:02d)} дней назад')
     elif dif == 0:
         print('ВНИМАНИЕ! Дедлайн сегодня!')
     else:
