@@ -83,7 +83,8 @@ while True:
             print(f'\n {n} Имя: {username} \n Заголовок: {title} \n Описание: {content}')
             print(f' Статус: {status}\n Дата создания: {created_date}\n Дедлайн: {issue_date}')
             #return note_dict
-print('Ввод закончен! ')
+
+            print('Ввод закончен! ')
 
 #if __name__=="__main__":
      #note = new_note()
