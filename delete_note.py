@@ -101,6 +101,6 @@ while True:
                         for j, k in i.items():
                             print(f'{list_[n]} {k} ')
                             n = n + 1
-
+                        # снова на ввод
 
 
