@@ -1,3 +1,7 @@
+# Работа с несколькими заметками
+# уникальность заметки определяют имя + заголовок
+# для одного имени не может быть двух одинаковых заголовков
+
 #Импорт необходимых модулей
 from datetime import datetime
 import locale
@@ -10,7 +14,17 @@ def err_date(date_str):
         return True
     except ValueError:
         return False
-#
+# функция добавления заметки в словарь
+def add_note():
+    note_dict.append({
+        "username": username,
+        "title": title,
+        "content": content,
+        "status": status,
+        "created_date": created_date,
+        "issue_date": issue_date
+    })
+
 date_now = datetime.now().date() # Текущая дата
 print('Сегодня ', date_now.strftime('%B,%d'))
 print('Добро пожаловать в "менеджер заметок"!')
@@ -29,7 +43,7 @@ while True:
         while new != 'да': # если введено еще что-то кроме 'да'
             print('Это не похоже на "да" или "нет", попробуйте еще раз')
             new = input('\nХотите ввести новую заметку? (да/нет) ').lower()
-        #print(new)
+
         username = input('Введите ваше имя: ').strip()
         while not username: # обработка пустого ввода
             print('Имя пользователя не может быть пустым')
@@ -70,22 +84,13 @@ while True:
             issue_date = input('Введите дату дедлайна (дд-мм-гггг): ').strip()
 
         # добавление заметки в словарь
-        note_dict.append({
-            "username": username,
-            "title": title,
-            "content": content,
-            "status": status,
-            "created_date": created_date,
-            "issue_date": issue_date
-        })
+        add_note()
+
         # вывод новой заметки
-        print(f'\n {n} Имя: {username} \n Заголовок: {title} \n Описание: {content}')
+        n = n + 1
+        print(f'\n {str(n)}. Имя: {username} \n Заголовок: {title} \n Описание: {content}')
         print(f' Статус: {status}\n Дата создания: {created_date}\n Дедлайн: {issue_date}')
-        #return note_dict
 
         print(' Ввод закончен! ')
 
-#if __name__=="__main__":
-     #note = new_note()
-     #print('\nЗаметка создана')
-       
+

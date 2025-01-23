@@ -1,3 +1,4 @@
+# Обработка дедлайнов
 #Импорт необходимых модулей
 from datetime import datetime
 import locale
@@ -6,12 +7,12 @@ locale.setlocale(locale.LC_ALL, 'ru_RU')
 # Вновь созданные функции:
 # Определение и вывод текущей даты
 def date_now():
-    date_now = datetime.now().date()
-    print('Текущая дата: ', date_now.strftime('%B,%d'))
-    return date_now
+    date_now_ = datetime.now().date()
+    print('Текущая дата: ', date_now_.strftime('%B,%d'))
+    return date_now_
 # Разница между дедлайном и текущей датой
-def difference(dead_date, date_now):
-    dif = dead_date - date_now
+def difference(a, b):
+    dif = a-b #dead_date - date_now
     dif = dif.days
     return dif
 # Обработка пользовательского ввода
