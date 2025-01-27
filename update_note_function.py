@@ -59,16 +59,16 @@ def update_note(note):
     return note
 
 
-#if name == "__main__":
-note = {
-    "username": "Алексей",
-    "title": "Список покупок",
-    "content": "Купить продукты на неделю",
-    "status": "новая",
-    "created_date": "27-11-2024",
-    "issue_date": "30-11-2024"
-}
+if __name__ == "__main__":
+    note = {
+        "username": "Алексей",
+        "title": "Список покупок",
+        "content": "Купить продукты на неделю",
+        "status": "новая",
+        "created_date": "27-11-2024",
+        "issue_date": "30-11-2024"
+    }
 
-updated_note = update_note(note)
-print("\nОбновлённая заметка:")
-print(updated_note)
+    updated_note = update_note(note)
+    print("\nОбновлённая заметка:")
+    print(updated_note)

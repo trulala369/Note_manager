@@ -19,12 +19,13 @@ def create_note():
         except ValueError:
             return False
 
+    note_dict = []
     while True:
         n = 0
         global date_now
         new = input('\nХотите ввести новую заметку? (да/нет) ').lower()
         if not new or new == 'нет':  # если ввод пустой или 'нет', выход
-            break
+            return note_dict
         else:
             while new != 'да':  # если введено еще что-то кроме 'да'
                 print('Это не похоже на "да" или "нет", попробуйте еще раз')
@@ -66,8 +67,7 @@ def create_note():
             print(f' Статус: {status}\n Дата создания: {created_date}\n Дедлайн: {issue_date}')
 
             # формирование словаря из добавленной заметки
-            dict_note = {}
-            dict_note.update({
+            note_dict.append({
                 "username": username,
                 "title": title,
                 "content": content,
@@ -75,9 +75,11 @@ def create_note():
                 "created_date": created_date,
                 "issue_date": issue_date
             })
-            return dict_note
 
-dict_=create_note()
-print('\nСловарь с заметкой:')
-print( dict_)
+if __name__ == "__main__":
+    note_dict = []
+    notes = create_note()
+    print('\nСловарь с заметкой:')
+    print(notes)
+
 

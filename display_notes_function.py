@@ -2,7 +2,8 @@
 
 # Функция вывода на экран одной страницы заметок
 def display_page(notes, page):
-    global end_index # переменная заодно служит для определения окончания вывода
+    global end_index  # переменная для определения окончания вывода
+
     start_index = 0 + page * 5 # начало выводимого диапазона
     end_index = 5 + page * 5   # конец выводимого диапазона
 
@@ -15,35 +16,34 @@ def display_page(notes, page):
         Имя пользователя: {note["username"]}
         Заголовок: {note["title"]}
         """)
+
 # Функция, вызывающая
 def display_notes(notes, page_number):
     if len(notes) == 0:
         print("Список заметок пуст")
     else:
-        display_page(notes, page_number)
+        while True:
+            display_page(notes, page_number )
+            if end_index >= len(notes):
+                break
+            else:
+                page_number = page_number + 1
 
-#notes = []
-#if name == '__main__':
+if __name__ == '__main__':
 
-# Определяем список заметок
-notes = [
-    {"username": "1", "title": "CV"},
-    {"username": "2", "title": "CV"},
-    {"username": "3", "title": "CV"},
-    {"username": "4", "title": "CV"},
-    {"username": "5", "title": "CV"},
-    {"username": "6", "title": "CV"},
-    {"username": "7", "title": "CV"},
-    {"username": "8", "title": "CV"},
-    {"username": "9", "title": "CV"},
-    {"username": "10", "title": "CV"},
-]
-n = 0
-end_index = 0
-# Цикл вывода страниц пока не закончатся заметки
-while True:
-    display_notes(notes = notes, page_number = n)
-    if  end_index >= len(notes):
-       break
-    else:
-        n = n + 1
+    # Определяем список заметок
+    notes = [
+        {"username": "Иван", "title": "Расходы"},
+        {"username": "Мария", "title": "Кастинг"},
+        {"username": "Иван", "title": "Выходные"},
+        {"username": "Алексей", "title": "Поездка в горы"},
+        {"username": "Мария", "title": "Свадьба"},
+        {"username": "Елена", "title": "Учеба"},
+        {"username": "Петр", "title": "Встреча с друзьями"},
+        {"username": "Иван", "title": "Поход"},
+        {"username": "Иван", "title": "Сессия"},
+        {"username": "Петр", "title": "Учеба"},
+    ]
+    n = 0
+    end_index = 0
+    display_notes(notes=notes, page_number=n)
