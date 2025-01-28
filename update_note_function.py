@@ -4,7 +4,6 @@ import datetime
 
 def validate_date(date_str):
     try:
-        # дд-мм-гггг
         datetime.datetime.strptime(date_str, "%d-%m-%Y")
         return True
     except ValueError:
@@ -21,7 +20,6 @@ def update_note(note):
     while True:
         field = input(f"\nКакие данные вы хотите обновить?\n"
                       f"Выберите из списка:{', '.join(updatable_fields)}: ").strip().lower()
-
         if field not in updatable_fields:
             print(f"Ошибка: Поле '{field}' не найдено. Пожалуйста, выберите поле из списка.")
             continue
@@ -46,28 +44,30 @@ def update_note(note):
                 continue
 
         note[field] = new_value
-        #print(f"\nЗаметка успешно обновлена: {field} -> {new_value}")
-
-        another_update = input("\nХотите обновить ещё одно поле? (да/нет): ").strip().lower()
-        if not another_update or another_update == "нет": # если пустой ввод или нет
-            print(another_update)
-            break
-        while another_update != "да" and another_update != "нет": # что-то, кроме да и нет
-            print(f"Ошибка! Это не похоже на 'да' или 'нет'. ")
-            another_update = input("\nХотите обновить ещё одно поле? (да/нет): ").strip().lower()
-
-    return note
-
+        print(f"\nЗаметка успешно обновлена: {field} -> {new_value}")
+        print('-'*50)
+        return note
 
 if __name__ == "__main__":
-    note = {
-        "username": "Алексей",
-        "title": "Список покупок",
-        "content": "Купить продукты на неделю",
-        "status": "новая",
-        "created_date": "27-11-2024",
-        "issue_date": "30-11-2024"
-    }
+    # список заметок для тестирования
+    notes = [
+        {'username': 'Иван', 'title': 'Расходы', 'content': 'Купить продукты на неделю', 'status': 'новая',
+         'created_date': '27-11-2024', 'issue_date': '30-11-2024'},
+        {'username': 'Мария', 'title': 'Кастинг', 'content': 'Выучить текст', 'status': 'выполнено',
+         'created_date': '27-11-2024', 'issue_date': '30-11-2024'},
+        {'username': 'Иван', 'title': 'Выходные', 'content': 'Отключить тлфн', 'status': 'новая',
+         'created_date': '27-11-2024', 'issue_date': '30-11-2024'},
+        {'username': 'Алексей', 'title': 'Поездка в горы', 'content': 'Позвонить Олегу', 'status': 'новая',
+         'created_date': '27-11-2024', 'issue_date': '30-11-2024'},
+        {'username': 'Мария', 'title': 'Свадьба', 'content': 'Купить туфли', 'status': 'новая',
+         'created_date': '27-11-2024', 'issue_date': '30-11-2024'},
+        {'username': 'Елена', 'title': 'Учеба', 'content': 'Выполнить задание 5', 'status': 'новая',
+         'created_date': '27-11-2024', 'issue_date': '30-11-2024'},
+        {'username': 'Петр', 'title': 'Свидание', 'content': 'Купить цветы', 'status': 'новая',
+         'created_date': '27-11-2024', 'issue_date': '30-11-2024'},
+        {'username': 'Иван', 'title': 'Поход', 'content': 'Купить палатку', 'status': 'новая',
+         'created_date': '27-11-2024', 'issue_date': '30-11-2024'}
+    ]
 
     updated_note = update_note(note)
     print("\nОбновлённая заметка:")

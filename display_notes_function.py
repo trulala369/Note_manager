@@ -1,4 +1,6 @@
 # функция для отображения заметок
+from selectors import SelectSelector
+
 
 # Функция вывода на экран одной страницы заметок
 def display_page(notes, page):
@@ -29,21 +31,29 @@ def display_notes(notes, page_number):
             else:
                 page_number = page_number + 1
 
+
 if __name__ == '__main__':
 
-    # Определяем список заметок
+    # список заметок для тестирования
     notes = [
-        {"username": "Иван", "title": "Расходы"},
-        {"username": "Мария", "title": "Кастинг"},
-        {"username": "Иван", "title": "Выходные"},
-        {"username": "Алексей", "title": "Поездка в горы"},
-        {"username": "Мария", "title": "Свадьба"},
-        {"username": "Елена", "title": "Учеба"},
-        {"username": "Петр", "title": "Встреча с друзьями"},
-        {"username": "Иван", "title": "Поход"},
-        {"username": "Иван", "title": "Сессия"},
-        {"username": "Петр", "title": "Учеба"},
+        {'username': 'Иван', 'title': 'Расходы', 'content': 'Купить продукты на неделю', 'status': 'новая',
+         'created_date': '27-11-2024', 'issue_date': '30-11-2024'},
+        {'username': 'Мария', 'title': 'Кастинг', 'content': 'Выучить текст', 'status': 'выполнено',
+         'created_date': '27-11-2024', 'issue_date': '30-11-2024'},
+        {'username': 'Иван', 'title': 'Выходные', 'content': 'Отключить тлфн', 'status': 'новая',
+         'created_date': '27-11-2024', 'issue_date': '30-11-2024'},
+        {'username': 'Алексей', 'title': 'Поездка в горы', 'content': 'Позвонить Олегу', 'status': 'новая',
+         'created_date': '27-11-2024', 'issue_date': '30-11-2024'},
+        {'username': 'Мария', 'title': 'Свадьба', 'content': 'Купить туфли', 'status': 'новая',
+         'created_date': '27-11-2024', 'issue_date': '30-11-2024'},
+        {'username': 'Елена', 'title': 'Учеба', 'content': 'Выполнить задание 5', 'status': 'новая',
+         'created_date': '27-11-2024', 'issue_date': '30-11-2024'},
+        {'username': 'Петр', 'title': 'Свидание', 'content': 'Купить цветы', 'status': 'новая',
+         'created_date': '27-11-2024', 'issue_date': '30-11-2024'},
+        {'username': 'Иван', 'title': 'Поход', 'content': 'Купить палатку', 'status': 'новая',
+         'created_date': '27-11-2024', 'issue_date': '30-11-2024'}
     ]
     n = 0
     end_index = 0
-    display_notes(notes=notes, page_number=n)
+    #display_notes(notes=notes, page_number=n)
+    display_notes(notes, n)
